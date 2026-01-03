@@ -1,0 +1,339 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142 86% 28%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 86% 28%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142 86% 28%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 86% 28%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes music-bar {
+  0%, 100% {
+    height: 20%;
+  }
+  50% {
+    height: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-music-bar {
+  animation: music-bar 1s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Particle Background Effects */
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.particle:nth-child(1) { animation: float-particle-1 8s infinite linear; }
+.particle:nth-child(2) { animation: float-particle-2 10s infinite linear; }
+.particle:nth-child(3) { animation: float-particle-3 12s infinite linear; }
+.particle:nth-child(4) { animation: float-particle-4 9s infinite linear; }
+.particle:nth-child(5) { animation: float-particle-5 11s infinite linear; }
+
+@keyframes float-particle-1 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
+  25% { opacity: 0.3; }
+  50% { transform: translate(100px, -100px) rotate(180deg); opacity: 0.2; }
+  75% { opacity: 0.4; }
+  100% { transform: translate(200px, -200px) rotate(360deg); opacity: 0.1; }
+}
+
+@keyframes float-particle-2 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.2; }
+  25% { opacity: 0.4; }
+  50% { transform: translate(-150px, -150px) rotate(180deg); opacity: 0.3; }
+  75% { opacity: 0.5; }
+  100% { transform: translate(-300px, -300px) rotate(360deg); opacity: 0.2; }
+}
+
+@keyframes float-particle-3 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
+  25% { opacity: 0.3; }
+  50% { transform: translate(200px, 100px) rotate(180deg); opacity: 0.2; }
+  75% { opacity: 0.4; }
+  100% { transform: translate(400px, 200px) rotate(360deg); opacity: 0.1; }
+}
+
+@keyframes float-particle-4 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.2; }
+  25% { opacity: 0.4; }
+  50% { transform: translate(-100px, -200px) rotate(180deg); opacity: 0.3; }
+  75% { opacity: 0.5; }
+  100% { transform: translate(-200px, -400px) rotate(360deg); opacity: 0.2; }
+}
+
+@keyframes float-particle-5 {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.1; }
+  25% { opacity: 0.3; }
+  50% { transform: translate(150px, -50px) rotate(180deg); opacity: 0.2; }
+  75% { opacity: 0.4; }
+  100% { transform: translate(300px, -100px) rotate(360deg); opacity: 0.1; }
+}
+
+/* Glowing Text Effects */
+.glow-text {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+}
+
+.neon-text {
+  animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+  from { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor; }
+  to { text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor; }
+}
+
+/* Animated Counter */
+.counter {
+  font-weight: bold;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Hover Effects */
+.feature-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.feature-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* Parallax Elements */
+.parallax-element {
+  transition: transform 0.3s ease-out;
+}
+
+/* Custom Music Cursor */
+.music-cursor {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b46c1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E") 12 12, auto;
+}
+
+/* Apply music cursor to entire app */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b46c1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18V5l12-2v13'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Ccircle cx='18' cy='16' r='3'/%3E%3C/svg%3E") 12 12, auto;
+}
+
+/* Floating Animation for Auth Page */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Music Bar Animation */
+@keyframes music-bar {
+  0%, 100% {
+    height: 20px;
+  }
+  50% {
+    height: 60px;
+  }
+}
+
+.animate-music-bar {
+  animation: music-bar 1.5s ease-in-out infinite;
+}
+
+/* Ping Slow Animation */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
